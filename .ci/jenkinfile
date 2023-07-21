@@ -15,10 +15,6 @@ def isThisTagUpdate() {
 }
 
 pipeline  {
-    environment   {
-
-        
-    }
 
     /*
      * Usefule reference links:
