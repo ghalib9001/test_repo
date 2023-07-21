@@ -1,0 +1,51 @@
+def isThisTagUpdate() {
+
+    // Get the variable from env variable
+    def inputBranchName = "${env.GIT_BRANCH}"
+    echo inputBranchName
+
+    // Tokenize the input
+    def (remoteName, tags, tagName) = inputBranchName.tokenize( '/' )
+
+    // Get the Tag name
+    echo remoteName
+    echo tags
+
+    return tags == 'tags'
+}
+
+pipeline  {
+    environment   {
+
+        
+    }
+
+    /*
+     * Usefule reference links:
+     * https://stackoverflow.com/questions/44330148/run-bash-command-on-jenkins-pipeline
+     * https://stackoverflow.com/questions/48762111/how-to-detect-jenkins-multibranch-branch-or-tag
+     */
+
+    // Build on any stage
+    agent any
+
+    // stages
+    stages {
+
+        // Build Docker stage
+        stage('Build Image') {
+            steps{
+            
+                // Groovy or shell code must go inside script tags
+                script {
+                sh '''
+                    echo "hello world"
+                '''
+                    
+                }
+            }
+        }
+
+       
+    }
+}
