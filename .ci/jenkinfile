@@ -34,7 +34,7 @@ pipeline  {
             
                 // Groovy or shell code must go inside script tags
                 script {
-                sh '''
+                sh ''' 
                     echo "hello world"
                 '''
                       
